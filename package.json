@@ -1,0 +1,24 @@
+{
+  "name": "sequelize-migrations-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-db": "docker-compose up",
+    "stop-db": "docker-compose down"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.7.13",
+    "@types/validator": "^13.6.3"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.6.5",
+    "sequelize-typescript": "^2.1.0"
+  }
+}
