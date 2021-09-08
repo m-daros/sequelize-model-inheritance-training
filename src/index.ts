@@ -51,7 +51,7 @@ const usePersistence = async () => {
     imageWidget1.width = 700;
     imageWidget1.height = 430;
     imageWidget1.selected = false;
-    imageWidget1.start = 111111;
+    imageWidget1.start = 1111111;
     imageWidget1.end = 2222222;
     imageWidget1.visible = false;
     imageWidget1.locked = true;
