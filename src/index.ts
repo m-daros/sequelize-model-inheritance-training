@@ -54,14 +54,17 @@ const usePersistence = async () => {
         include: [ { model: WidgetEntity } ]
     } );
 
+    // Retrieving the all the widget attributes based on their types
     const textWidgetsEntities = await TextWidgetEntity.findAll ( { include: [ { model: WidgetEntity } ] } );
     const imageWidgetEntities = await ImageWidgetEntity.findAll ( { include: [ { model: WidgetEntity } ] } );
 
-    const textWidgets = modelConverter.toTextWidgets ( textWidgetsEntities );
-    const imageWidgets = modelConverter.toImageWidgets ( imageWidgetEntities );
+    console.log ( `Text Widgets: ${JSON.stringify ( modelConverter.toTextWidgets ( textWidgetsEntities ) )}`);
+    console.log ( `Image Widgets: ${JSON.stringify ( modelConverter.toImageWidgets ( imageWidgetEntities ) )}`);
 
-    console.log ( `Text Widgets: ${JSON.stringify ( textWidgets )}` );
-    console.log ( `Image Widgets: ${JSON.stringify ( imageWidgets )}` );
+    // Retrieving only the common attributes of the widgets (we are able to retrieve them regardless of the concrete widget type)
+    const widgets = await WidgetEntity.findAll ();
+
+    console.log ( `Widgets: ${JSON.stringify ( modelConverter.toWidgets ( widgets ) )}` );
 }
 
 sequelize.sync ( { force: true } )

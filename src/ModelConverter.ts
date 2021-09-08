@@ -3,7 +3,9 @@ import { TextWidgetEntity } from "./orm/TextWidgetEntity";
 import { WidgetEntity } from "./orm/WidgetEntity";
 import { ImageWidget } from "./model/ImageWidget";
 import { ImageWidgetEntity } from "./orm/ImageWidgetEntity";
+import { Widget } from "./model/Widget";
 
+// TODO Refactor to avoid code duplication
 export class ModelConverter {
 
     public toTextWidgetEntity = ( textWidget: TextWidget ): TextWidgetEntity => {
@@ -86,5 +88,23 @@ export class ModelConverter {
 
         return entities
             .map ( imageWidget => this.toImageWidget ( imageWidget ) );
+    }
+
+    public toWidget = ( entity: WidgetEntity ): Widget => {
+
+        var widget = new Widget ();
+        widget.id   = entity.id;
+        widget.name = entity.name;
+        widget.type = entity.type;
+        widget.x    = entity.x;
+        widget.y    = entity.y
+
+        return widget;
+    }
+
+    public toWidgets = ( entities: WidgetEntity [] ): Widget [] => {
+
+        return entities
+            .map ( widget => this.toWidget ( widget ) );
     }
 }
