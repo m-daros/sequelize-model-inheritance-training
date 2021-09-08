@@ -21,27 +21,27 @@ export class WidgetEntity extends Model<WidgetEntity> {
     @Column
     y: number;
 
-    // @Column
-    // z: number;
-    //
-    // @Column
-    // width: number;
-    //
-    // @Column
-    // height: number;
-    //
-    // @Column
-    // selected: boolean;
-    //
-    // @Column
-    // start: number;
-    //
-    // @Column
-    // end: number;
-    //
-    // @Column
-    // visible: boolean;
-    //
-    // @Column
-    // locked: boolean;
+    @Column
+    z: number;
+
+    @Column
+    width: number;
+
+    @Column
+    height: number;
+
+    @Column
+    selected: boolean;
+
+    @Column
+    start: number;
+
+    @Column
+    end: number;
+
+    @Column
+    visible: boolean;
+
+    @Column
+    locked: boolean;
 }

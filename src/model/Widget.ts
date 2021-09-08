@@ -5,13 +5,12 @@ export class Widget {
     type: string; // Should be WidgetType
     x: number;
     y: number;
-
-// z: number;
-// width: number;
-// height: number;
-// selected: boolean;
-// start: number;
-// end: number;
-// visible: boolean;
-// locked: boolean;
+    z: number;
+    width: number;
+    height: number;
+    selected: boolean;
+    start: number;
+    end: number;
+    visible: boolean;
+    locked: boolean;
 }

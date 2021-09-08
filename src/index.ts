@@ -32,6 +32,14 @@ const usePersistence = async () => {
     textWidget1.text = "my-text-1";
     textWidget1.x = 10;
     textWidget1.y = 20;
+    textWidget1.z = 19;
+    textWidget1.width = 500;
+    textWidget1.height = 350;
+    textWidget1.selected = true;
+    textWidget1.start = 1234567;
+    textWidget1.end = 9999999;
+    textWidget1.visible = true;
+    textWidget1.locked = false;
 
     const imageWidget1 = new ImageWidget ();
     imageWidget1.name = "my-image-widget-1";
@@ -39,6 +47,14 @@ const usePersistence = async () => {
     imageWidget1.src = "http://my-images/image-1";
     imageWidget1.x = 5;
     imageWidget1.y = 55;
+    imageWidget1.z = 19;
+    imageWidget1.width = 700;
+    imageWidget1.height = 430;
+    imageWidget1.selected = false;
+    imageWidget1.start = 111111;
+    imageWidget1.end = 2222222;
+    imageWidget1.visible = false;
+    imageWidget1.locked = true;
 
     const textWidgetEntity1 = modelConverter.toTextWidgetEntity ( textWidget1 );
     const imageWidgetEntity1 = modelConverter.toImageWidgetEntity ( imageWidget1 );

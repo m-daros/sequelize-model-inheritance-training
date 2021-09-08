@@ -8,34 +8,50 @@ import { Widget } from "./model/Widget";
 // TODO Refactor to avoid code duplication
 export class ModelConverter {
 
-    public toTextWidgetEntity = ( textWidget: TextWidget ): TextWidgetEntity => {
+    public toTextWidgetEntity = ( widget: TextWidget ): TextWidgetEntity => {
 
         // We build the entity as literal otherwise Sequelize doesn't persist the attribute values
         return {
 
-            text: textWidget.text,
+            text: widget.text,
             widget: {
 
-                name: textWidget.name,
-                type: textWidget.type,
-                x: textWidget.x,
-                y: textWidget.y
+                name: widget.name,
+                type: widget.type,
+                x: widget.x,
+                y: widget.y,
+                z: widget.z,
+                width: widget.width,
+                height: widget.height,
+                selected: widget.selected,
+                start: widget.start,
+                end: widget.end,
+                visible: widget.visible,
+                locked: widget.locked
             } as WidgetEntity
         } as TextWidgetEntity
     }
 
-    public toImageWidgetEntity = ( imageWidget: ImageWidget ): ImageWidgetEntity => {
+    public toImageWidgetEntity = ( widget: ImageWidget ): ImageWidgetEntity => {
 
         // We build the entity as literal otherwise Sequelize doesn't persist the attribute values
         return {
 
-            src: imageWidget.src,
+            src: widget.src,
             widget: {
 
-                name: imageWidget.name,
-                type: imageWidget.type,
-                x: imageWidget.x,
-                y: imageWidget.y
+                name: widget.name,
+                type: widget.type,
+                x: widget.x,
+                y: widget.y,
+                z: widget.z,
+                width: widget.width,
+                height: widget.height,
+                selected: widget.selected,
+                start: widget.start,
+                end: widget.end,
+                visible: widget.visible,
+                locked: widget.locked
             } as WidgetEntity
         } as ImageWidgetEntity
     }
@@ -54,28 +70,44 @@ export class ModelConverter {
 
     public toTextWidget = ( entity: TextWidgetEntity ): TextWidget => {
 
-        var textWidget = new TextWidget ();
-        textWidget.id   = entity.id;
-        textWidget.name = entity.widget.name;
-        textWidget.type = entity.widget.type;
-        textWidget.x    = entity.widget.x;
-        textWidget.y    = entity.widget.y
-        textWidget.text = entity.text;
+        var widget = new TextWidget ();
+        widget.id       = entity.id;
+        widget.name     = entity.widget.name;
+        widget.type     = entity.widget.type;
+        widget.x        = entity.widget.x;
+        widget.y        = entity.widget.y
+        widget.z        = entity.widget.z;
+        widget.width    = entity.widget.width;
+        widget.height   = entity.widget.height;
+        widget.selected = entity.widget.selected;
+        widget.start    = entity.widget.start;
+        widget.end      = entity.widget.end;
+        widget.visible  = entity.widget.visible;
+        widget.locked   = entity.widget.locked;
+        widget.text     = entity.text;
 
-        return textWidget;
+        return widget;
     }
 
     public toImageWidget = ( entity: ImageWidgetEntity ): ImageWidget => {
 
-        var imageWidget = new ImageWidget ();
-        imageWidget.id   = entity.id;
-        imageWidget.name = entity.widget.name;
-        imageWidget.type = entity.widget.type;
-        imageWidget.x    = entity.widget.x;
-        imageWidget.y    = entity.widget.y
-        imageWidget.src  = entity.src;
+        var widget = new ImageWidget ();
+        widget.id       = entity.id;
+        widget.name     = entity.widget.name;
+        widget.type     = entity.widget.type;
+        widget.x        = entity.widget.x;
+        widget.y        = entity.widget.y
+        widget.z        = entity.widget.z;
+        widget.width    = entity.widget.width;
+        widget.height   = entity.widget.height;
+        widget.selected = entity.widget.selected;
+        widget.start    = entity.widget.start;
+        widget.end      = entity.widget.end;
+        widget.visible  = entity.widget.visible;
+        widget.locked   = entity.widget.locked;
+        widget.src      = entity.src;
 
-        return imageWidget;
+        return widget;
     }
 
     public toTextWidgets = ( entities: TextWidgetEntity [] ): TextWidget [] => {
@@ -93,11 +125,19 @@ export class ModelConverter {
     public toWidget = ( entity: WidgetEntity ): Widget => {
 
         var widget = new Widget ();
-        widget.id   = entity.id;
-        widget.name = entity.name;
-        widget.type = entity.type;
-        widget.x    = entity.x;
-        widget.y    = entity.y
+        widget.id       = entity.id;
+        widget.name     = entity.name;
+        widget.type     = entity.type;
+        widget.x        = entity.x;
+        widget.y        = entity.y;
+        widget.z        = entity.z;
+        widget.width    = entity.width;
+        widget.height   = entity.height;
+        widget.selected = entity.selected;
+        widget.start    = entity.start;
+        widget.end      = entity.end;
+        widget.visible  = entity.visible;
+        widget.locked   = entity.locked;
 
         return widget;
     }
